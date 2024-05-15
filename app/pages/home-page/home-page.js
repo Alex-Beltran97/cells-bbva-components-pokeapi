@@ -40,6 +40,10 @@ export class HomePage extends CellsPage {
     this.results = this.pokemonEvolutions.count;    
   }
 
+  onPageEnter() {
+    localStorage.removeItem('evolutions');
+  }
+
   render() {
     return html `
       <cells-template-paper-drawer-panel mode="seamed">

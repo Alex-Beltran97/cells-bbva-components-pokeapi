@@ -31,14 +31,13 @@ export class DetailPage extends CellsPage {
     this.requestUpdate();
   }
 
-  onPageLeave() {
+  onPageLeave() {    
     this.showComponent = false;
     this.requestUpdate();
   }
 
   updated() {
     this._validatePokemonData();
-
   }
 
   render() {    
@@ -50,6 +49,7 @@ export class DetailPage extends CellsPage {
         <div slot="app__main">
           ${ this.params.id && this.showComponent ? html `
             <ui-pokemon-detail
+              class="pokemon"
               id="${ this.params.id }"
             >
               <bbva-button-default
@@ -79,12 +79,8 @@ export class DetailPage extends CellsPage {
     return nextEvolutions;
   }
 
-  _validatePokemonData() {
-    const pokemonId = this.params?.id;
+  _validatePokemonData() {    
     const evolutions = localStorage.getItem('evolutions') ? JSON.parse(localStorage.getItem('evolutions')) : {};
-    if (evolutions?.id !== pokemonId) {
-      return this.navigate('home');
-    };
     if (!evolutions?.nextEvolutions) {
       this._disableButton();
     };

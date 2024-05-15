@@ -5,14 +5,31 @@ export default css `
     display: block;
   }
 
-  .pokemon-container {    
-    width: 96%;
+  [slot="app__main"] {
     display: flex;
     align-items: center;
-    justify-content: center;    
+    justify-content: center;
   }
 
+  .pokemon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
   .pokemon {
-    width: 50%;
+    text-align: center;
+  }
+
+  @media (min-width: 1024px) {
+    .pokemon {
+      width: 48%;
+    }
+    
+    .one-pokemon {
+      width: 100%;      
+      flex-flow: nowrap;
+    }
   }
 `;

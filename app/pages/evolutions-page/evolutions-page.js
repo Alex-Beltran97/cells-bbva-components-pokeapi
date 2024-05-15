@@ -45,7 +45,7 @@ export class EvolutionsPage extends CellsPage {
           <div class="pokemon-container">
             ${ this.ids.length !== 0 ? this.ids.map(id => html `
               <ui-pokemon-detail
-                class="pokemon"              
+                class="pokemon ${ this.ids.length === 1 ? "one-pokemon" : "" }"              
                 id="${ id }"
               ></ui-pokemon-detail>                        
             `) : ""}
